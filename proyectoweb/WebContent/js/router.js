@@ -6,8 +6,11 @@ define([
   'views/home/HomeView',
   'views/projects/ProjectsView',
   'views/contributors/ContributorsView',
-  'views/footer/FooterView'
-], function($, _, Backbone, HomeView, ProjectsView, ContributorsView, FooterView) {
+  'views/footer/FooterView',
+  'views/usuario/eliminarUsuarioView',
+  'views/otros/funcionamientoView',
+  'views/otros/generarSoporteView'
+], function($, _, Backbone, HomeView, ProjectsView, ContributorsView, FooterView, eliminarUsuarioView, funcionamientoView, generarSoporteView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -51,7 +54,10 @@ define([
     // outside of an on-route function to have it loaded no matter which page is
     // loaded initially.
     var footerView = new FooterView();
-
+    var eliminarUsuarioView = new eliminarUsuarioView();
+    var funcionamientoView = new funcionamientoView();
+    var generarSopoteView = new generarSoporteView();
+                        
     Backbone.history.start();
   };
   return { 
