@@ -12,7 +12,7 @@ define([
     render: function(){
       
       $('.menu li').removeClass('active');
-      $('.menu li a[href="#"]').parent().addClass('active');
+      $('.menu li a[href="#/ListadoMarcas"]').parent().addClass('active');
       this.$el.html(ListadoMarcas);
 
       var sidebarView = new SidebarView();

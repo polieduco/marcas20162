@@ -10,7 +10,12 @@ define([
   'views/usuario/eliminarUsuarioView',
   'views/otros/funcionamientoView',
   'views/otros/generarSoporteView'
-], function($, _, Backbone, HomeView, ProjectsView, ContributorsView, FooterView, eliminarUsuarioView, funcionamientoView, generarSoporteView) {
+  'views/marca/añadirMarcaView',
+  'views/marca/listarMarcaView',
+  'views/marca/marcaView',
+  'views/otros/contactoAyudaView',
+], function($, _, Backbone, HomeView, ProjectsView, ContributorsView, FooterView, eliminarUsuarioView, funcionamientoView, generarSoporteView
+        añadirMarcaView,listarMarcaView,marcaView,contactoAyudaView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -20,6 +25,10 @@ define([
       'otros': 'showFuncionamiento',
       'otros': 'showGenerarSoporte',
       'usuario': 'showEliminarUsuario',
+      'añadirMarca': 'showAñadirMarca',
+      'Listarmarca': 'showListarMarca',
+      'contactoayuda':'showContactoAyuda',
+      'marca':'showMarca',
       
       // Default
       '*actions': 'defaultAction'
@@ -72,7 +81,34 @@ define([
         generar_soporteView.render();
 
     });
-    
+
+        app_router.on('route:showMarca', function(){
+       
+        var marcaView = new marcaView();
+        marcaView.render();
+
+    });
+
+        app_router.on('route:showListar_Marca', function(){
+       
+        var listado_MarcaView = new listarMarcaView();
+        listado_MarcaView.render();
+
+    });   
+
+        app_router.on('route:showAñadir_Marca', function(){
+       
+        var añadir_MarcaView = new añadirMarcaView();
+        añadir_MarcaView.render();
+
+    });
+
+        app_router.on('route:showContacto_Ayuda', function(){
+       
+        var contacto_AyudaView = new contactoAyudaView();
+        contacto_AyudaView.render();
+
+    });       
     // Unlike the above, we don't call render on this view as it will handle
     // the render call internally after it loads data. Further more we load it
     // outside of an on-route function to have it loaded no matter which page is
